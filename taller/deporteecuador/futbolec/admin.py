@@ -32,12 +32,24 @@ class JugadorAdmin(admin.ModelAdmin):
 
 admin.site.register(Jugador, JugadorAdmin)
 
+class CampeonatoAdmin(admin.ModelAdmin):
+    # listado de atributos que se mostrará
+    # por cada registro
+    # se deja de usar la representación (str)
+    # de la clase
+    list_display = ('nombreC', 'nombreA')
+    search_fields = ('nombreC', 'nombreA',)
+
+admin.site.register(Campeonato, CampeonatoAdmin)
+
 class CampeonatoEAdmin(admin.ModelAdmin):
     # listado de atributos que se mostrará
     # por cada registro
     # se deja de usar la representación (str)
     # de la clase
     list_display = ('anio', 'equipo', 'campeonato')
-    search_fields = ('equipo__nombre', 'campeonato__nombreCampeonato',)
+    search_fields = ('equipo__nombre', 'campeonato__nombreC',)
 
 admin.site.register(CampeonatoEquipos, CampeonatoEAdmin)
+
+
